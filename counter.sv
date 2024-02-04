@@ -5,33 +5,33 @@
 //
 //
 module counter (
-input en; //enable
-input rst;//async rst
-input ld;//sync load
-input clk;//clk
-input dir;//sets direction 1 for up, 0 for down
-input [3:0] ld_val ;//load value
-output [3:0] count;
+input logic en, //enable
+input rst,//async rst
+input ld,//sync load
+input clk,//clk
+input dir,//sets direction 1 for up, 0 for down
+input [3:0] ld_val,//load value
+reg [3:0] count
 );
-    if rst begin
-        count = 4b'0000;
-    end
-    else begin
-        if (en) begin
-            always_ff @( clk posedge ) begin 
-                    if (ld )
-                        //load in value here
-                        count <= ld_val;
-                    else if (dir) 
-                        count <= count + 1'd1;
-                    else if (~dir)
-                        count <= count - 1'd1;
 
-                end
-        end
-        count <= count;
+
+always_ff @( posedge clk or posedge rst) begin 
+    if(en) begin
+        if (rst) 
+            count <= 4'b0000;
+        else if (ld ) 
+            //load in value here
+            count <= ld_val;
         
-        end
+        else if (dir) 
+            count <= count + 1'd1;
+                      
+        else if (~dir)
+            count <= count - 1'd1;
+        
+    end
+
+end
     
     
 
