@@ -1,0 +1,16 @@
+Q Also provide a paragraph describing the most interesting hardware or software project that you have completed.
+
+
+A:
+The most interesting software project I have worked on was definitely deploying a scientific computing pipeline to a HPC cluster.
+This project involved exposing myself to a host of new tools and technologies. Some of the interesting challenges I dealt with were
+
+- Setting up XFVB and building a custom install of the VTK library for the PPC64 architecture
+- Writing shell scripts to verify result generation, automate file compression and transfers, and use slurm to submit jobs
+- Accelerating hilbert transform calculations for graph theoritcal analyses using cupy
+- Dependency conflict resolution in Conda
+
+All of these were new concepts for me. Being the only engineer on the team, i had to navigate these issues on my own - which has made
+me adept at going through documentation, forums, and debugging obscure problems. Overall, this was a fullfilling experience that
+led to my growth as a software developer
+
